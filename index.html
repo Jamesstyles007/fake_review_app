@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake Review Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        textarea {
+            width: 60%;
+            height: 100px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin: 20px auto;
+            padding: 15px;
+            width: 60%;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            border-radius: 10px;
+        }
+        .CG {
+            background-color: #e74c3c;
+        }
+        .OR {
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fake Review Detector</h1>
+    <form method="POST">
+        <textarea name="review" placeholder="Paste or write your review here..." required>{{ review }}</textarea>
+        <br><br>
+        <button type="submit">Check Review</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result {{ prediction }}">
+            Prediction: {{ "Fake (CG)" if prediction == "CG" else "Original (OR)" }}
+        </div>
+    {% endif %}
+</body>
+</html>
