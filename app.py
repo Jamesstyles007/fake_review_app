@@ -9,6 +9,7 @@ app = Flask(__name__)
 MODEL_FILE = "review_model.pkl"
 
 # Train model if not already saved
+#James
 def train_model():
     df = pd.read_csv("dataset.csv")
     X = df["text"]
