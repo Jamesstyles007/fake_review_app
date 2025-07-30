@@ -8,7 +8,7 @@ from sklearn.linear_model import LogisticRegression
 app = Flask(__name__)
 MODEL_FILE = "review_model.pkl"
 
-# Train model if not already saved
+
 #James
 def train_model():
     df = pd.read_csv("dataset.csv")
@@ -23,7 +23,7 @@ def train_model():
 
     joblib.dump((vectorizer, model), MODEL_FILE)
 
-# Load model or train it
+
 if not os.path.exists(MODEL_FILE):
     train_model()
 
